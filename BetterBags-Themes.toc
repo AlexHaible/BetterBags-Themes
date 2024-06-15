@@ -1,0 +1,26 @@
+## Interface: 100207, 110000, 40400
+
+## Title: BetterBags - Themes
+## Author: Sauravisus (Xerastrasza - Magtheridon EU, Horde)
+## Notes: Adds more themes to BetterBags!
+## Version: @project-version@
+## X-Date: @project-date-iso@
+## X-Category: Bags & Inventory
+## X-Curse-Project-ID: 1037168
+## Dependencies: BetterBags
+## IconTexture: Interface\Icons\inv_misc_bag_24_netherweave_imbued
+
+#@alpha@
+## OptionalDeps: BugSack, BugGrabber
+#@end-alpha@
+
+themes/BloodElf.lua
+themes/VoidElf.lua
+themes/Nightborne.lua
+themes/NightElf.lua
+
+## themes/.lua
+
+#@debug@
+## Version: DEV
+#@end-debug@

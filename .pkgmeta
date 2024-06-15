@@ -1,0 +1,11 @@
+package-as: BetterBags-Themes
+enable-toc-creation: yes
+enable-nolib-creation: no
+
+license-output: LICENSE.txt
+
+required-dependencies:
+  - better-bags
+
+ignore:
+  - BetterBagsThemes.png

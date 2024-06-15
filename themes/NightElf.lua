@@ -14,8 +14,8 @@ local decoratorFrames = {}
 
 ---@type Theme
 local simpleDark = {
-  Name = 'Simple Dark',
-  Description = 'A simple dark theme.',
+  Name = 'Races - Night Elf',
+  Description = 'A Night Elf inspired theme.',
   Available = true,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]

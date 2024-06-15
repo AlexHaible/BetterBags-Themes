@@ -14,12 +14,38 @@
 ## OptionalDeps: BugSack, BugGrabber
 #@end-alpha@
 
+## Horde themes
 themes/BloodElf.lua
-themes/VoidElf.lua
 themes/Nightborne.lua
-themes/NightElf.lua
+themes/Orc.lua
+themes/Undead.lua
+themes/Tauren.lua
+themes/Troll.lua
+themes/Goblin.lua
+themes/HighmountainTauren.lua
+themes/MagharOrc.lua
+themes/ZandalariTroll.lua
+themes/Vulpera.lua
 
-## themes/.lua
+## Alliance themes
+themes/VoidElf.lua
+themes/NightElf.lua
+themes/Draenei.lua
+themes/Dwarf.lua
+themes/Gnome.lua
+themes/Human.lua
+themes/Worgen.lua
+themes/KulTiran.lua
+themes/LightforgedDraenei.lua
+themes/Mechagnome.lua
+themes/DarkIronDwarf.lua
+
+## Both factions themes
+themes/Pandaren.lua
+themes/Dracthyr.lua
+
+## Misc themes
+themes/Dynamic.lua
 
 #@debug@
 ## Version: DEV

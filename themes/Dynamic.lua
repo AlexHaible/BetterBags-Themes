@@ -12,10 +12,28 @@ local themes = addon:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
+local playerRace = UnitRace("player")
+local dynamicBgFile
+local dynamicEdgeFile
+
+if playerRace == "BloodElf" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "NightElf" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "VoidElf" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Nightborne" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+end
+
 ---@type Theme
 local simpleDark = {
-  Name = 'Races - Nightborne',
-  Description = 'A Nightborne inspired theme.',
+  Name = 'Races - Dynamic',
+  Description = 'A theme that changes depending on your race.',
   Available = true,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
@@ -25,8 +43,8 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
+        bgFile = dynamicBgFile,
+        edgeFile = dynamicEdgeFile,
         edgeSize = 16,
         insets = {left = 4, right = 4, top = 4, bottom = 4}
       })
@@ -66,8 +84,8 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
+        bgFile = dynamicBgFile,
+        edgeFile = dynamicEdgeFile,
         edgeSize = 16,
         insets = {left = 4, right = 4, top = 4, bottom = 4}
       })
@@ -105,8 +123,8 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
+        bgFile = dynamicBgFile,
+        edgeFile = dynamicEdgeFile,
         edgeSize = 16,
         insets = {left = 4, right = 4, top = 4, bottom = 4}
       })

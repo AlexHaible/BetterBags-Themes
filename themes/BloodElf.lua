@@ -1,16 +1,18 @@
-local addonName = ... ---@type string
-
 ---@class BetterBags: AceAddon
-local addon = LibStub('AceAddon-3.0'):GetAddon(addonName)
+local BetterBags = LibStub('AceAddon-3.0'):GetAddon("BetterBags")
+assert(BetterBags, "BetterBags - Themes requires BetterBags")
 
 ---@class Themes: AceModule
-local themes = addon:GetModule('Themes')
+local themes = BetterBags:GetModule('Themes')
 
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
 
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
+
+local bloodElfBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\BloodElfBorder.png'
+local bloodElfBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\MarbleBackground.png'
 
 ---@type Theme
 local simpleDark = {
@@ -25,19 +27,26 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = bloodElfBackground,
+        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(1, 0.85, 0.85, 1)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(bloodElfBorder)
+      decoration.Border:SetTextureSliceMargins(24, 24, 24, 24);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 24, -24)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 12, "")
+      title:SetFont(UNIT_NAME_FONT, 14, "OUTLINE")
       title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOP", decoration, "TOP", 0, 0)
+      title:SetPoint("TOP", decoration, "TOP", 0, 28)
       title:SetHeight(30)
       decoration.title = title
 
@@ -46,7 +55,7 @@ local simpleDark = {
       end
 
       local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 1, 0)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 24, 24)
       close:SetScript("OnClick", function()
         frame.Owner:Hide()
       end)
@@ -66,13 +75,20 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = bloodElfBackground,
+        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.8, 0.65, 0.65, 0.9)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(bloodElfBorder)
+      decoration.Border:SetTextureSliceMargins(24, 24, 24, 24);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 24, -24)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -105,13 +121,20 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = bloodElfBackground,
+        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(1, 0.85, 0.85, 1)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(bloodElfBorder)
+      decoration.Border:SetTextureSliceMargins(24, 24, 24, 24);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 24, -24)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -153,4 +176,4 @@ local simpleDark = {
   end
 }
 
-themes:RegisterTheme('SimpleDark', simpleDark)
+themes:RegisterTheme('RacesBloodElf', simpleDark)

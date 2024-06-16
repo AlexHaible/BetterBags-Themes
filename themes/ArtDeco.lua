@@ -8,14 +8,21 @@ local themes = BetterBags:GetModule('Themes')
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
 
+---@class BagButton: Button
+---@field portrait Texture
+---@field highlightTex Texture
+
+local artDecoFont = "Interface\\Addons\\BetterBags-Themes\\fonts\\PoiretOne-Regular.ttf"
+local artDecoBorder = "Interface\\Addons\\BetterBags-Themes\\textures\\ArtDecoBorder.png"
+
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
 ---@type Theme
 local simpleDark = {
-  Name = 'Races - Worgen',
-  Description = 'A Worgen inspired theme.',
-  Available = false,
+  Name = 'Art Deco',
+  Description = 'An extravagant Art Deco theme.',
+  Available = true,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
@@ -24,20 +31,25 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = 'Interface\\Azerite\\AzeriteTooltipBackground',
+        insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(1, 1, 1, 1)
+
+      decoration.Texture = decoration:CreateTexture();
+      decoration.Texture:SetTexture(artDecoBorder)
+      decoration.Texture:SetTextureSliceMargins(64, 64, 64, 64);
+      decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
+      decoration.Texture:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 16, -16)
+      decoration.Texture:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       title:SetFont(UNIT_NAME_FONT, 12, "")
       title:SetTextColor(1, 1, 1)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
-      title:SetHeight(30)
+      title:SetFont(artDecoFont, 24, "")
       decoration.title = title
 
       if themes.titles[frame:GetName()] then
@@ -45,9 +57,9 @@ local simpleDark = {
       end
 
       local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 1, 0)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 16, 16)
       close:SetScript("OnClick", function()
-        frame.Owner:Hide()
+        frame:Hide()
       end)
 
       themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
@@ -65,13 +77,18 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = 'Interface\\Azerite\\AzeriteTooltipBackground',
+        insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(1, 1, 1, 1)
+
+      decoration.Texture = decoration:CreateTexture();
+      decoration.Texture:SetTexture(artDecoBorder)
+      decoration.Texture:SetTextureSliceMargins(64, 64, 64, 64);
+      decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
+      decoration.Texture:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 16, -16)
+      decoration.Texture:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -104,13 +121,18 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = 'Interface\\Azerite\\AzeriteTooltipBackground',
+        insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(1, 1, 1, 1)
+
+      decoration.Texture = decoration:CreateTexture();
+      decoration.Texture:SetTexture(artDecoBorder)
+      decoration.Texture:SetTextureSliceMargins(64, 64, 64, 64);
+      decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
+      decoration.Texture:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 16, -16)
+      decoration.Texture:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -152,4 +174,4 @@ local simpleDark = {
   end
 }
 
-themes:RegisterTheme('RacesWorgen', simpleDark)
+themes:RegisterTheme('ThemesArtDeco', simpleDark)

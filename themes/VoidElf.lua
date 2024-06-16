@@ -1,10 +1,9 @@
-local addonName = ... ---@type string
-
 ---@class BetterBags: AceAddon
-local addon = LibStub('AceAddon-3.0'):GetAddon(addonName)
+local BetterBags = LibStub('AceAddon-3.0'):GetAddon("BetterBags")
+assert(BetterBags, "BetterBags - Themes requires BetterBags")
 
 ---@class Themes: AceModule
-local themes = addon:GetModule('Themes')
+local themes = BetterBags:GetModule('Themes')
 
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
@@ -16,7 +15,7 @@ local decoratorFrames = {}
 local simpleDark = {
   Name = 'Races - Void Elf',
   Description = 'A Void Elf inspired theme.',
-  Available = true,
+  Available = false,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
@@ -153,4 +152,4 @@ local simpleDark = {
   end
 }
 
-themes:RegisterTheme('SimpleDark', simpleDark)
+themes:RegisterTheme('RacesVoidElf', simpleDark)

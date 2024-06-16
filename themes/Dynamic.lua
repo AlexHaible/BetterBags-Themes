@@ -1,10 +1,9 @@
-local addonName = ... ---@type string
-
 ---@class BetterBags: AceAddon
-local addon = LibStub('AceAddon-3.0'):GetAddon(addonName)
+local BetterBags = LibStub('AceAddon-3.0'):GetAddon("BetterBags")
+assert(BetterBags, "BetterBags - Themes requires BetterBags")
 
 ---@class Themes: AceModule
-local themes = addon:GetModule('Themes')
+local themes = BetterBags:GetModule('Themes')
 
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
@@ -12,20 +11,85 @@ local themes = addon:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
-local playerRace = UnitRace("player")
+local playerRaceFull, playerRace, raceId = UnitRace("player")
 local dynamicBgFile
 local dynamicEdgeFile
 
+-- Horde Races
 if playerRace == "BloodElf" then
   dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
   dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Orc" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Undead" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Tauren" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Troll" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Goblin" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Nightborne" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "MagharOrc" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "HighmountainTauren" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "ZandalariTroll" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Vulpera" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+
+-- Alliance Races
 elseif playerRace == "NightElf" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Human" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Draenei" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Dwarf" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Gnome" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Worgen" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "DarkIronDwarf" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "LightforgedDraenei" then
   dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
   dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
 elseif playerRace == "VoidElf" then
   dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
   dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
-elseif playerRace == "Nightborne" then
+elseif playerRace == "KulTiran" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Mechagnome" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+  
+-- Both faction races
+elseif playerRace == "Dracthyr" then
+  dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
+  dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
+elseif playerRace == "Pandaren" then
   dynamicBgFile = 'Interface\\ChatFrame\\ChatFrameBackground'
   dynamicEdgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border'
 end
@@ -34,7 +98,7 @@ end
 local simpleDark = {
   Name = 'Races - Dynamic',
   Description = 'A theme that changes depending on your race.',
-  Available = true,
+  Available = false,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
@@ -171,4 +235,4 @@ local simpleDark = {
   end
 }
 
-themes:RegisterTheme('SimpleDark', simpleDark)
+themes:RegisterTheme('RacesDynamic', simpleDark)

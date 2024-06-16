@@ -1,4 +1,4 @@
-## Interface: 100207, 110000, 40400
+## Interface: 100207, 110000
 
 ## Title: BetterBags - Themes
 ## Author: Sauravisus (Xerastrasza - Magtheridon EU, Horde)
@@ -46,6 +46,7 @@ themes/Dracthyr.lua
 
 ## Misc themes
 themes/Dynamic.lua
+themes/ArtDeco.lua
 
 #@debug@
 ## Version: DEV

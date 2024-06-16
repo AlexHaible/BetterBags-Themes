@@ -1,10 +1,9 @@
-local addonName = ... ---@type string
-
 ---@class BetterBags: AceAddon
-local addon = LibStub('AceAddon-3.0'):GetAddon(addonName)
+local BetterBags = LibStub('AceAddon-3.0'):GetAddon("BetterBags")
+assert(BetterBags, "BetterBags - Themes requires BetterBags")
 
 ---@class Themes: AceModule
-local themes = addon:GetModule('Themes')
+local themes = BetterBags:GetModule('Themes')
 
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
@@ -12,10 +11,12 @@ local themes = addon:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
+local humanBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\HumanBorder.png'
+
 ---@type Theme
 local simpleDark = {
-  Name = 'Races - Blood Elf',
-  Description = 'A Blood Elf inspired theme.',
+  Name = 'Races - Human',
+  Description = 'A Human inspired theme.',
   Available = true,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
@@ -26,18 +27,23 @@ local simpleDark = {
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
         bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.01, 0.01, 0.2, 0.7)
+
+      decoration.Texture = decoration:CreateTexture();
+      decoration.Texture:SetTexture(humanBorder)
+      decoration.Texture:SetTextureSliceMargins(54, 54, 54, 54);
+      decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
+      decoration.Texture:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 16, -16)
+      decoration.Texture:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 12, "")
+      title:SetFont(UNIT_NAME_FONT, 14, "OUTLINE")
       title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOP", decoration, "TOP", 0, 0)
+      title:SetPoint("TOP", decoration, "TOP", 0, 24)
       title:SetHeight(30)
       decoration.title = title
 
@@ -46,7 +52,7 @@ local simpleDark = {
       end
 
       local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 1, 0)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 16, 16)
       close:SetScript("OnClick", function()
         frame.Owner:Hide()
       end)
@@ -67,12 +73,17 @@ local simpleDark = {
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
         bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.01, 0.01, 0.2, 0.7)
+
+      decoration.Texture = decoration:CreateTexture();
+      decoration.Texture:SetTexture(humanBorder)
+      decoration.Texture:SetTextureSliceMargins(54, 54, 54, 54);
+      decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
+      decoration.Texture:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 16, -16)
+      decoration.Texture:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -106,12 +117,17 @@ local simpleDark = {
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
         bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.01, 0.01, 0.2, 0.7)
+
+      decoration.Texture = decoration:CreateTexture();
+      decoration.Texture:SetTexture(humanBorder)
+      decoration.Texture:SetTextureSliceMargins(54, 54, 54, 54);
+      decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
+      decoration.Texture:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 16, -16)
+      decoration.Texture:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -153,4 +169,4 @@ local simpleDark = {
   end
 }
 
-themes:RegisterTheme('SimpleDark', simpleDark)
+themes:RegisterTheme('RacesHuman', simpleDark)

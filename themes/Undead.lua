@@ -11,6 +11,9 @@ local themes = BetterBags:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
+local undeadBorder = 'Interface\\AddOns\\BetterBags\\textures\\UndeadBorder.png'
+local undeadBackground = 'Interface\\ChatFrame\\ChatFrameBackground'
+
 ---@type Theme
 local simpleDark = {
   Name = 'Races - Undead',
@@ -24,13 +27,20 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = undeadBackground,
+        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        tile = true,
+        tileSize = 128
       })
       decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(undeadBorder)
+      decoration.Border:SetTextureSliceMargins(13, 13, 13, 13);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -13, 13)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 13, -13)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")

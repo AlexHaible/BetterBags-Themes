@@ -39,15 +39,15 @@ local simpleDark = {
       decoration.Border:SetTexture(darkIronDwarfBorder)
       decoration.Border:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -60, 60)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 60, -60)
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -56, 56)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 56, -56)
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       title:SetFont(UNIT_NAME_FONT, 14, "OUTLINE")
       title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOP", decoration, "TOP", 0, 45)
+      title:SetPoint("TOP", decoration, "TOP", 0, 48)
       title:SetHeight(30)
       decoration.title = title
 
@@ -56,7 +56,7 @@ local simpleDark = {
       end
 
       local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 48, 48)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 39, 39)
       close:SetScript("OnClick", function()
         frame.Owner:Hide()
       end)
@@ -87,8 +87,8 @@ local simpleDark = {
       decoration.Border:SetTexture(darkIronDwarfBorder)
       decoration.Border:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -60, 60)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 60, -60)
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -56, 56)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 56, -56)
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
@@ -133,8 +133,8 @@ local simpleDark = {
       decoration.Border:SetTexture(darkIronDwarfBorder)
       decoration.Border:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -60, 60)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 60, -60)
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -56, 56)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 56, -56)
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text

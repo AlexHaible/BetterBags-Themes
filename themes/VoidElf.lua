@@ -11,11 +11,15 @@ local themes = BetterBags:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
+---@type string
+local voidElfBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\VoidElfBorder.png'
+local voidElfBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\VoidRockBackground.png'
+
 ---@type Theme
 local simpleDark = {
   Name = 'Races - Void Elf',
   Description = 'A Void Elf inspired theme.',
-  Available = false,
+  Available = true,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
@@ -24,19 +28,26 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = voidElfBackground,
+        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.85, 0.85, 1, 0.8)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(voidElfBorder)
+      decoration.Border:SetTextureSliceMargins(26, 26, 26, 26);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -22, 22)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 22, -22)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 12, "")
+      title:SetFont(UNIT_NAME_FONT, 14, "OUTLINE")
       title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOP", decoration, "TOP", 0, 0)
+      title:SetPoint("TOP", decoration, "TOP", 0, 26)
       title:SetHeight(30)
       decoration.title = title
 
@@ -45,7 +56,7 @@ local simpleDark = {
       end
 
       local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 1, 0)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 22, 22)
       close:SetScript("OnClick", function()
         frame.Owner:Hide()
       end)
@@ -65,13 +76,20 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = voidElfBackground,
+        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.85, 0.85, 1, 0.8)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(voidElfBorder)
+      decoration.Border:SetTextureSliceMargins(26, 26, 26, 26);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -22, 22)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 22, -22)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -104,13 +122,20 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = voidElfBackground,
+        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.85, 0.85, 1, 0.8)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(voidElfBorder)
+      decoration.Border:SetTextureSliceMargins(26, 26, 26, 26);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -22, 22)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 22, -22)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")

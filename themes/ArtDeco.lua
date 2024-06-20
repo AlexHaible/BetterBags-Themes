@@ -8,15 +8,12 @@ local themes = BetterBags:GetModule('Themes')
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
 
----@class BagButton: Button
----@field portrait Texture
----@field highlightTex Texture
-
-local artDecoFont = "Interface\\Addons\\BetterBags-Themes\\fonts\\PoiretOne-Regular.ttf"
-local artDecoBorder = "Interface\\Addons\\BetterBags-Themes\\textures\\ArtDecoBorder.png"
-
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
+
+---@type string
+local artDecoFont = "Interface\\Addons\\BetterBags-Themes\\fonts\\PoiretOne-Regular.ttf"
+local artDecoBorder = "Interface\\Addons\\BetterBags-Themes\\textures\\ArtDecoBorder.png"
 
 ---@type Theme
 local simpleDark = {

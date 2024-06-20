@@ -11,6 +11,7 @@ local themes = BetterBags:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
+---@type string
 local bloodElfBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\BloodElfBorder.png'
 local bloodElfBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\MarbleBackground.png'
 

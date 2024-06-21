@@ -77,8 +77,7 @@ local simpleDark = {
       close:SetNormalTexture(closeButton)
       close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 0, 20)
       close:SetScript("OnClick", function()
-        print("Close button clicked!")
-        frame.Owner:Hide()
+        frame:Hide()
       end)
 
       themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
@@ -97,30 +96,44 @@ local simpleDark = {
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
         bgFile = theBackground,
-        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        insets = {left = -0, right = -0, top = -0, bottom = -0},
         tile = true,
         tileSize = 128
       })
-      decoration:SetBackdropColor(0.8, 0.65, 0.65, 0.9)
+      decoration:SetBackdropColor(0.5568627450980392, 0.6980392156862745, 0.8588235294117647, 0.5)
+
+      decoration.BackdropOverlay = decoration:CreateTexture()
+      decoration.BackdropOverlay:SetTexture(theTexture)
+      decoration.BackdropOverlay:SetPoint("TOP", frame, "TOP", -8, -8)
+      decoration.BackdropOverlay:SetPoint("RIGHT", frame, "RIGHT", 8, -8)
+      decoration.BackdropOverlay:SetPoint("BOTTOM", frame, "BOTTOM", 8, -8)
+      decoration.BackdropOverlay:SetPoint("LEFT", frame, "LEFT", -8, 8)
+      decoration.BackdropOverlay:SetVertexColor(1, 1, 1, 0.2)
 
       decoration.Border = decoration:CreateTexture();
       decoration.Border:SetTexture(theBorder)
-      decoration.Border:SetTextureSliceMargins(24, 24, 24, 24);
-      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 24, -24)
-      decoration.Border:SetVertexColor(1, 1, 1);
+      decoration.Border:SetTextureSliceMargins(8, 29, 8, 8)
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled)
+      decoration.Border:SetPoint("TOP", frame, "TOP", 0, 20)
+      decoration.Border:SetPoint("RIGHT", frame, "RIGHT", 8, 0)
+      decoration.Border:SetPoint("BOTTOM", frame, "BOTTOM", 0, -8)
+      decoration.Border:SetPoint("LEFT", frame, "LEFT", -8, 0)
+      decoration.Border:SetVertexColor(1, 1, 1)
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       title:SetFont(theFont, 12, "")
       title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOP", decoration, "TOP", 0, 0)
+      title:SetPoint("TOPLEFT", decoration, "TOPLEFT", 4, 20)
       title:SetHeight(30)
       decoration.title = title
 
-      local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 1, 0)
+      local close = CreateFrame("Button", nil, decoration)
+      close:SetSize(50, 21)
+      close:SetPushedTexture(closeButtonPush)
+      close:SetHighlightTexture(closeButtonHover)
+      close:SetNormalTexture(closeButton)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 0, 20)
       close:SetScript("OnClick", function()
         frame:Hide()
       end)
@@ -143,25 +156,35 @@ local simpleDark = {
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
         bgFile = theBackground,
-        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        insets = {left = -0, right = -0, top = -0, bottom = -0},
         tile = true,
         tileSize = 128
       })
-      decoration:SetBackdropColor(1, 0.85, 0.85, 1)
+      decoration:SetBackdropColor(0.5568627450980392, 0.6980392156862745, 0.8588235294117647, 0.5)
+
+      decoration.BackdropOverlay = decoration:CreateTexture()
+      decoration.BackdropOverlay:SetTexture(theTexture)
+      decoration.BackdropOverlay:SetPoint("TOP", frame, "TOP", -8, -8)
+      decoration.BackdropOverlay:SetPoint("RIGHT", frame, "RIGHT", 8, -8)
+      decoration.BackdropOverlay:SetPoint("BOTTOM", frame, "BOTTOM", 8, -8)
+      decoration.BackdropOverlay:SetPoint("LEFT", frame, "LEFT", -8, 8)
+      decoration.BackdropOverlay:SetVertexColor(1, 1, 1, 0.2)
 
       decoration.Border = decoration:CreateTexture();
       decoration.Border:SetTexture(theBorder)
-      decoration.Border:SetTextureSliceMargins(24, 24, 24, 24);
-      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 24, -24)
-      decoration.Border:SetVertexColor(1, 1, 1);
+      decoration.Border:SetTextureSliceMargins(8, 29, 8, 8)
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled)
+      decoration.Border:SetPoint("TOP", frame, "TOP", 0, 20)
+      decoration.Border:SetPoint("RIGHT", frame, "RIGHT", 8, 0)
+      decoration.Border:SetPoint("BOTTOM", frame, "BOTTOM", 0, -8)
+      decoration.Border:SetPoint("LEFT", frame, "LEFT", -8, 0)
+      decoration.Border:SetVertexColor(1, 1, 1)
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       title:SetFont(theFont, 12, "")
       title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOP", decoration, "TOP", 0, 0)
+      title:SetPoint("TOPLEFT", decoration, "TOPLEFT", 4, 20)
       title:SetHeight(30)
       decoration.title = title
 

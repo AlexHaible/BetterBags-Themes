@@ -41,3 +41,7 @@ luac.out
 
 # Release.sh
 .release
+
+# PSD files
+*.psd
+textures/*.psd

@@ -12,7 +12,7 @@ local themes = BetterBags:GetModule('Themes')
 local decoratorFrames = {}
 
 ---@type string
-local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\BloodElfBorder.png'
+local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\BloodElfBorderNew.png'
 local theBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\MarbleBackground.png'
 
 ---@type Theme

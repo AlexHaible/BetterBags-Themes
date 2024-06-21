@@ -12,8 +12,8 @@ local themes = BetterBags:GetModule('Themes')
 local decoratorFrames = {}
 
 ---@type string
-local darkIronDwarfBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\DarkIronDwarfBorder.png'
-local darkIronDwarfBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\MarbleBackground.png'
+local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\DarkIronDwarfBorder.png'
+local theBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\MarbleBackground.png'
 
 ---@type Theme
 local simpleDark = {
@@ -28,7 +28,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = darkIronDwarfBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -36,7 +36,7 @@ local simpleDark = {
       decoration:SetBackdropColor(1, 0.7, 0.7, 1)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(darkIronDwarfBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -56, 56)
@@ -76,7 +76,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = darkIronDwarfBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -84,7 +84,7 @@ local simpleDark = {
       decoration:SetBackdropColor(1, 0.7, 0.7, 1)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(darkIronDwarfBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -56, 56)
@@ -122,7 +122,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = darkIronDwarfBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -130,7 +130,7 @@ local simpleDark = {
       decoration:SetBackdropColor(1, 0.7, 0.7, 1)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(darkIronDwarfBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -56, 56)

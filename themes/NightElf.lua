@@ -11,7 +11,8 @@ local themes = BetterBags:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
-local nightElfBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\NightElfBorder.png'
+local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\NightElfBorder.png'
+local theBackground = 'Interface\\ChatFrame\\ChatFrameBackground'
 
 ---@type Theme
 local simpleDark = {
@@ -26,13 +27,13 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
       decoration:SetBackdropColor(0.01, 0.2, 0.01, 0.7)
 
       decoration.Texture = decoration:CreateTexture();
-      decoration.Texture:SetTexture(nightElfBorder)
+      decoration.Texture:SetTexture(theBorder)
       decoration.Texture:SetTextureSliceMargins(74, 74, 74, 74);
       decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
@@ -72,13 +73,13 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
       decoration:SetBackdropColor(0.01, 0.2, 0.01, 0.7)
 
       decoration.Texture = decoration:CreateTexture();
-      decoration.Texture:SetTexture(nightElfBorder)
+      decoration.Texture:SetTexture(theBorder)
       decoration.Texture:SetTextureSliceMargins(74, 74, 74, 74);
       decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
@@ -116,13 +117,13 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
       decoration:SetBackdropColor(0.01, 0.2, 0.01, 0.7)
 
       decoration.Texture = decoration:CreateTexture();
-      decoration.Texture:SetTexture(nightElfBorder)
+      decoration.Texture:SetTexture(theBorder)
       decoration.Texture:SetTextureSliceMargins(74, 74, 74, 74);
       decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)

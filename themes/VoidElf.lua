@@ -12,8 +12,8 @@ local themes = BetterBags:GetModule('Themes')
 local decoratorFrames = {}
 
 ---@type string
-local voidElfBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\VoidElfBorder.png'
-local voidElfBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\VoidRockBackground.png'
+local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\VoidElfBorder.png'
+local theBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\VoidRockBackground.png'
 
 ---@type Theme
 local simpleDark = {
@@ -28,7 +28,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = voidElfBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -36,7 +36,7 @@ local simpleDark = {
       decoration:SetBackdropColor(0.85, 0.85, 1, 0.8)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(voidElfBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(26, 26, 26, 26);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -22, 22)
@@ -76,7 +76,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = voidElfBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -84,7 +84,7 @@ local simpleDark = {
       decoration:SetBackdropColor(0.85, 0.85, 1, 0.8)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(voidElfBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(26, 26, 26, 26);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -22, 22)
@@ -122,7 +122,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = voidElfBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -130,7 +130,7 @@ local simpleDark = {
       decoration:SetBackdropColor(0.85, 0.85, 1, 0.8)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(voidElfBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(26, 26, 26, 26);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -22, 22)

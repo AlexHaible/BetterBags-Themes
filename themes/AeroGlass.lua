@@ -12,13 +12,18 @@ local themes = BetterBags:GetModule('Themes')
 local decoratorFrames = {}
 
 ---@type string
-local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\DwarfBorder.png'
-local theBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\MarbleBackground.png'
+local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassBorder.png'
+local theBackground = 'Interface\\ChatFrame\\ChatFrameBackground'
+local theTexture = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassTexture.png'
+local theFont = 'Interface\\AddOns\\BetterBags-Themes\\fonts\\SegoeUI.ttf'
+local closeButton = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButton.png'
+local closeButtonHover = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButtonHover.png'
+local closeButtonPush = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButtonPush.png'
 
 ---@type Theme
 local simpleDark = {
-  Name = 'Races - Dwarf',
-  Description = 'A Dwarf inspired theme.',
+  Name = 'Aero Glass',
+  Description = 'A Windows 7 inspired theme.',
   Available = true,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
@@ -29,25 +34,35 @@ local simpleDark = {
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
         bgFile = theBackground,
-        insets = {left = -8, right = -8, top = -8, bottom = -8},
+        insets = {left = -0, right = -0, top = -0, bottom = -0},
         tile = true,
         tileSize = 128
       })
-      decoration:SetBackdropColor(0.85, 0.85, 1, 1)
+      decoration:SetBackdropColor(0.5568627450980392, 0.6980392156862745, 0.8588235294117647, 0.5)
+
+      decoration.BackdropOverlay = decoration:CreateTexture()
+      decoration.BackdropOverlay:SetTexture(theTexture)
+      decoration.BackdropOverlay:SetPoint("TOP", frame, "TOP", -8, -8)
+      decoration.BackdropOverlay:SetPoint("RIGHT", frame, "RIGHT", 8, -8)
+      decoration.BackdropOverlay:SetPoint("BOTTOM", frame, "BOTTOM", 8, -8)
+      decoration.BackdropOverlay:SetPoint("LEFT", frame, "LEFT", -8, 8)
+      decoration.BackdropOverlay:SetVertexColor(1, 1, 1, 0.2)
 
       decoration.Border = decoration:CreateTexture();
       decoration.Border:SetTexture(theBorder)
-      decoration.Border:SetTextureSliceMargins(52, 52, 52, 52);
-      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -48, 48)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 48, -48)
-      decoration.Border:SetVertexColor(1, 1, 1);
+      decoration.Border:SetTextureSliceMargins(8, 29, 8, 8)
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled)
+      decoration.Border:SetPoint("TOP", frame, "TOP", 0, 20)
+      decoration.Border:SetPoint("RIGHT", frame, "RIGHT", 8, 0)
+      decoration.Border:SetPoint("BOTTOM", frame, "BOTTOM", 0, -8)
+      decoration.Border:SetPoint("LEFT", frame, "LEFT", -8, 0)
+      decoration.Border:SetVertexColor(1, 1, 1)
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 14, "OUTLINE")
+      title:SetFont(theFont, 12, "")
       title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOP", decoration, "TOP", 0, 40)
+      title:SetPoint("TOPLEFT", decoration, "TOPLEFT", 32, 20)
       title:SetHeight(30)
       decoration.title = title
 
@@ -55,9 +70,14 @@ local simpleDark = {
         decoration.title:SetText(themes.titles[frame:GetName()])
       end
 
-      local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 36, 36)
+      local close = CreateFrame("Button", nil, decoration)
+      close:SetSize(50, 21)
+      close:SetPushedTexture(closeButtonPush)
+      close:SetHighlightTexture(closeButtonHover)
+      close:SetNormalTexture(closeButton)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 0, 20)
       close:SetScript("OnClick", function()
+        print("Close button clicked!")
         frame.Owner:Hide()
       end)
 
@@ -81,19 +101,19 @@ local simpleDark = {
         tile = true,
         tileSize = 128
       })
-      decoration:SetBackdropColor(0.85, 0.85, 1, 1)
+      decoration:SetBackdropColor(0.8, 0.65, 0.65, 0.9)
 
       decoration.Border = decoration:CreateTexture();
       decoration.Border:SetTexture(theBorder)
-      decoration.Border:SetTextureSliceMargins(52, 52, 52, 52);
+      decoration.Border:SetTextureSliceMargins(24, 24, 24, 24);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -48, 48)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 48, -48)
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 24, -24)
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 12, "")
+      title:SetFont(theFont, 12, "")
       title:SetTextColor(1, 1, 1)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
       title:SetHeight(30)
@@ -127,19 +147,19 @@ local simpleDark = {
         tile = true,
         tileSize = 128
       })
-      decoration:SetBackdropColor(0.85, 0.85, 1, 1)
+      decoration:SetBackdropColor(1, 0.85, 0.85, 1)
 
       decoration.Border = decoration:CreateTexture();
       decoration.Border:SetTexture(theBorder)
-      decoration.Border:SetTextureSliceMargins(52, 52, 52, 52);
+      decoration.Border:SetTextureSliceMargins(24, 24, 24, 24);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
-      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -48, 48)
-      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 48, -48)
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -24, 24)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 24, -24)
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 12, "")
+      title:SetFont(theFont, 12, "")
       title:SetTextColor(1, 1, 1)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
       title:SetHeight(30)
@@ -161,7 +181,7 @@ local simpleDark = {
     end
   end,
   SectionFont = function(font)
-    font:SetFont(UNIT_NAME_FONT, 12, "")
+    font:SetFont(theFont, 12, "")
     font:SetTextColor(1, 1, 1)
   end,
   SetTitle = function(frame, title)
@@ -177,4 +197,4 @@ local simpleDark = {
   end
 }
 
-themes:RegisterTheme('RacesDwarf', simpleDark)
+themes:RegisterTheme('WinAeroGlass', simpleDark)

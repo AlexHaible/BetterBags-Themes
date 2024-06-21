@@ -47,6 +47,7 @@ themes/Dracthyr.lua
 ## Misc themes
 themes/Dynamic.lua
 themes/ArtDeco.lua
+themes/AeroGlass.lua
 
 #@debug@
 ## Version: DEV

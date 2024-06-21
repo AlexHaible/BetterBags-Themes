@@ -11,8 +11,8 @@ local themes = BetterBags:GetModule('Themes')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
-local undeadBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\UndeadBorder.png'
-local undeadBackground = 'Interface\\ChatFrame\\ChatFrameBackground'
+local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\UndeadBorder.png'
+local theBackground = 'Interface\\ChatFrame\\ChatFrameBackground'
 
 ---@type Theme
 local simpleDark = {
@@ -27,7 +27,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = undeadBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -35,7 +35,7 @@ local simpleDark = {
       decoration:SetBackdropColor(0, 0, 0, 1)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(undeadBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(13, 13, 13, 13);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -13, 13)
@@ -75,7 +75,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = undeadBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -83,7 +83,7 @@ local simpleDark = {
       decoration:SetBackdropColor(0, 0, 0, 1)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(undeadBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(13, 13, 13, 13);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -13, 13)
@@ -121,7 +121,7 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = undeadBackground,
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8},
         tile = true,
         tileSize = 128
@@ -129,7 +129,7 @@ local simpleDark = {
       decoration:SetBackdropColor(0, 0, 0, 1)
 
       decoration.Border = decoration:CreateTexture();
-      decoration.Border:SetTexture(undeadBorder)
+      decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(13, 13, 13, 13);
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -13, 13)

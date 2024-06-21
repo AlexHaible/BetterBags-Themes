@@ -12,8 +12,9 @@ local themes = BetterBags:GetModule('Themes')
 local decoratorFrames = {}
 
 ---@type string
-local artDecoFont = "Interface\\Addons\\BetterBags-Themes\\fonts\\PoiretOne-Regular.ttf"
-local artDecoBorder = "Interface\\Addons\\BetterBags-Themes\\textures\\ArtDecoBorder.png"
+local theBorder = "Interface\\Addons\\BetterBags-Themes\\textures\\ArtDecoBorder.png"
+local theBackground = "Interface\\Azerite\\AzeriteTooltipBackground"
+local theFont = "Interface\\Addons\\BetterBags-Themes\\fonts\\PoiretOne-Regular.ttf"
 
 ---@type Theme
 local simpleDark = {
@@ -28,13 +29,13 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\Azerite\\AzeriteTooltipBackground',
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
       decoration:SetBackdropColor(1, 1, 1, 1)
 
       decoration.Texture = decoration:CreateTexture();
-      decoration.Texture:SetTexture(artDecoBorder)
+      decoration.Texture:SetTexture(theBorder)
       decoration.Texture:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
@@ -46,7 +47,7 @@ local simpleDark = {
       title:SetFont(UNIT_NAME_FONT, 12, "")
       title:SetTextColor(1, 1, 1)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
-      title:SetFont(artDecoFont, 24, "")
+      title:SetFont(theFont, 24, "")
       decoration.title = title
 
       if themes.titles[frame:GetName()] then
@@ -74,13 +75,13 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\Azerite\\AzeriteTooltipBackground',
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
       decoration:SetBackdropColor(1, 1, 1, 1)
 
       decoration.Texture = decoration:CreateTexture();
-      decoration.Texture:SetTexture(artDecoBorder)
+      decoration.Texture:SetTexture(theBorder)
       decoration.Texture:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)
@@ -118,13 +119,13 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\Azerite\\AzeriteTooltipBackground',
+        bgFile = theBackground,
         insets = {left = -8, right = -8, top = -8, bottom = -8}
       })
       decoration:SetBackdropColor(1, 1, 1, 1)
 
       decoration.Texture = decoration:CreateTexture();
-      decoration.Texture:SetTexture(artDecoBorder)
+      decoration.Texture:SetTexture(theBorder)
       decoration.Texture:SetTextureSliceMargins(64, 64, 64, 64);
       decoration.Texture:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
       decoration.Texture:SetPoint("TOPLEFT", frame, "TOPLEFT", -16, 16)

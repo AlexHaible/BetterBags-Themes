@@ -8,6 +8,9 @@ local themes = BetterBags:GetModule('Themes')
 ---@class Search: AceModule
 local search = BetterBags:GetModule('Search')
 
+---@class Fonts: AceModule
+local fonts = BetterBags:GetModule('Fonts')
+
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
 
@@ -51,9 +54,8 @@ local simpleDark = {
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
-      local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 14, "OUTLINE")
-      title:SetTextColor(1, 1, 1)
+      local title = decoration:CreateFontString(nil, "OVERLAY")
+      title:SetFontObject(fonts.UnitFrame12White)
       title:SetPoint("TOP", decoration, "TOP", 0, 26)
       title:SetHeight(30)
       decoration.title = title
@@ -104,9 +106,8 @@ local simpleDark = {
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
-      local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 12, "")
-      title:SetTextColor(1, 1, 1)
+      local title = decoration:CreateFontString(nil, "OVERLAY")
+      title:SetFontObject(fonts.UnitFrame12White)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
       title:SetHeight(30)
       decoration.title = title
@@ -150,9 +151,8 @@ local simpleDark = {
       decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
-      local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(UNIT_NAME_FONT, 12, "")
-      title:SetTextColor(1, 1, 1)
+      local title = decoration:CreateFontString(nil, "OVERLAY")
+      title:SetFontObject(fonts.UnitFrame12White)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
       title:SetHeight(30)
       decoration.title = title
@@ -173,8 +173,7 @@ local simpleDark = {
     end
   end,
   SectionFont = function(font)
-    font:SetFont(UNIT_NAME_FONT, 12, "")
-    font:SetTextColor(1, 1, 1)
+    font:SetFontObject(fonts.UnitFrame12White)
   end,
   SetTitle = function(frame, title)
     local decoration = decoratorFrames[frame:GetName()]
@@ -192,6 +191,13 @@ local simpleDark = {
     if decoration then
       decoration.search:SetShown(shown)
     end
+  end,
+  PositionBagSlots = function (frame, bagSlotWindow)
+    bagSlotWindow:ClearAllPoints()
+    bagSlotWindow:SetPoint("BOTTOMLEFT", frame, "TOPLEFT", 0, 0)
+  end,
+  OffsetSidebar = function()
+    return -40
   end
 }
 

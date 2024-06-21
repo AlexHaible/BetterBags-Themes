@@ -8,6 +8,9 @@ local themes = BetterBags:GetModule('Themes')
 ---@class Search: AceModule
 local search = BetterBags:GetModule('Search')
 
+---@class Fonts: AceModule
+local fonts = BetterBags:GetModule('Fonts')
+
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
 
@@ -26,6 +29,10 @@ local theFont = 'Interface\\AddOns\\BetterBags-Themes\\fonts\\SegoeUI.ttf'
 local closeButton = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButton.png'
 local closeButtonHover = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButtonHover.png'
 local closeButtonPush = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButtonPush.png'
+
+fonts.SegoeUI = CreateFont('BetterBagsSegoeUI')
+fonts.SegoeUI:SetFont(theFont, 12, "")
+fonts.SegoeUI:SetTextColor(1, 1, 1)
 
 ---@type Theme
 local simpleDark = {
@@ -92,7 +99,7 @@ local simpleDark = {
       searchBox.frame:SetSize(150, 20)
       decoration.search = searchBox
 
-      themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
+      local bagButton = themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
       -- Save the decoration frame for reuse.
       decoratorFrames[frame:GetName()] = decoration
     else
@@ -216,8 +223,7 @@ local simpleDark = {
     end
   end,
   SectionFont = function(font)
-    font:SetFont(theFont, 12, "")
-    font:SetTextColor(1, 1, 1)
+    font:SetFontObject(fonts.SegoeUI)
   end,
   SetTitle = function(frame, title)
     local decoration = decoratorFrames[frame:GetName()]
@@ -235,6 +241,13 @@ local simpleDark = {
     if decoration then
       decoration.search:SetShown(shown)
     end
+  end,
+  PositionBagSlots = function (frame, bagSlotWindow)
+    bagSlotWindow:ClearAllPoints()
+    bagSlotWindow:SetPoint("BOTTOMLEFT", frame, "TOPLEFT", 0, 0)
+  end,
+  OffsetSidebar = function()
+    return -40
   end
 }
 

@@ -5,6 +5,9 @@ assert(BetterBags, "BetterBags - Themes requires BetterBags")
 ---@class Themes: AceModule
 local themes = BetterBags:GetModule('Themes')
 
+---@class Search: AceModule
+local search = BetterBags:GetModule('Search')
+
 ---@class SimpleDarkDecoration: Frame
 ---@field title FontString
 
@@ -59,6 +62,11 @@ local simpleDark = {
       close:SetScript("OnClick", function()
         frame:Hide()
       end)
+
+      local searchBox = search:CreateBox(frame.Owner.kind, decoration --[[@as Frame]])
+      searchBox.frame:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", -22, -2)
+      searchBox.frame:SetSize(150, 20)
+      decoration.search = searchBox
 
       themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
       -- Save the decoration frame for reuse.
@@ -168,6 +176,12 @@ local simpleDark = {
   Reset = function()
     for _, frame in pairs(decoratorFrames) do
       frame:Hide()
+    end
+  end,
+  ToggleSearch = function (frame, shown)
+    local decoration = decoratorFrames[frame:GetName()]
+    if decoration then
+      decoration.search:SetShown(shown)
     end
   end
 }

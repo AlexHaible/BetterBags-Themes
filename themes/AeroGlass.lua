@@ -29,10 +29,17 @@ local theFont = 'Interface\\AddOns\\BetterBags-Themes\\fonts\\SegoeUI.ttf'
 local closeButton = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButton.png'
 local closeButtonHover = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButtonHover.png'
 local closeButtonPush = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassCloseButtonPush.png'
+local menuButton = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassMenuButton.png'
+local menuButtonHover = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassMenuButtonHover.png'
+local menuButtonPush = 'Interface\\AddOns\\BetterBags-Themes\\textures\\AeroGlassMenuButtonPush.png'
 
 fonts.SegoeUI = CreateFont('BetterBagsSegoeUI')
 fonts.SegoeUI:SetFont(theFont, 12, "")
 fonts.SegoeUI:SetTextColor(1, 1, 1)
+
+fonts.SegoeUITitle = CreateFont('BetterBagsSegoeUITitle')
+fonts.SegoeUITitle:SetFont(theFont, 14, "OUTLINE")
+fonts.SegoeUITitle:SetTextColor(1, 1, 1)
 
 ---@type Theme
 local simpleDark = {
@@ -73,10 +80,9 @@ local simpleDark = {
       decoration.Border:SetVertexColor(1, 1, 1)
 
       -- Title text
-      local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(theFont, 12, "")
-      title:SetTextColor(1, 1, 1)
-      title:SetPoint("TOPLEFT", decoration, "TOPLEFT", 32, 20)
+      local title = decoration:CreateFontString(nil, "OVERLAY")
+      title:SetFontObject(fonts.SegoeUITitle)
+      title:SetPoint("TOPLEFT", decoration, "TOPLEFT", 0, 20)
       title:SetHeight(30)
       decoration.title = title
 
@@ -100,6 +106,15 @@ local simpleDark = {
       decoration.search = searchBox
 
       local bagButton = themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
+      bagButton.portrait:Hide()
+      bagButton.highlightTex:Hide()
+      bagButton:ClearAllPoints()
+      bagButton:SetSize(30, 21)
+      bagButton:SetNormalTexture(menuButton)
+      bagButton:SetHighlightTexture(menuButtonHover)
+      bagButton:SetPushedTexture(menuButtonPush)
+      bagButton:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", -49, 20)
+
       -- Save the decoration frame for reuse.
       decoratorFrames[frame:GetName()] = decoration
     else
@@ -140,9 +155,8 @@ local simpleDark = {
       decoration.Border:SetVertexColor(1, 1, 1)
 
       -- Title text
-      local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(theFont, 12, "")
-      title:SetTextColor(1, 1, 1)
+      local title = decoration:CreateFontString(nil, "OVERLAY")
+      title:SetFontObject(fonts.SegoeUI)
       title:SetPoint("TOPLEFT", decoration, "TOPLEFT", 4, 20)
       title:SetHeight(30)
       decoration.title = title
@@ -247,7 +261,7 @@ local simpleDark = {
     bagSlotWindow:SetPoint("BOTTOMLEFT", frame, "TOPLEFT", 0, 0)
   end,
   OffsetSidebar = function()
-    return -40
+    return -20
   end
 }
 

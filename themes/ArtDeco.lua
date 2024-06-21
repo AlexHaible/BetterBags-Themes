@@ -21,6 +21,7 @@ local decoratorFrames = {}
 local theBorder = "Interface\\Addons\\BetterBags-Themes\\textures\\ArtDecoBorder.png"
 local theBackground = "Interface\\Azerite\\AzeriteTooltipBackground"
 local theFont = "Interface\\Addons\\BetterBags-Themes\\fonts\\PoiretOne-Regular.ttf"
+--local theCrest = "Interface\\Addons\\BetterBags-Themes\\textures\\ArtDecoCrest.png"
 
 fonts.ArtDeco = CreateFont('BetterBagsArtDeco')
 fonts.ArtDeco:SetFont(theFont, 12, "")

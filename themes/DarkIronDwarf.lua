@@ -24,6 +24,7 @@ local decoratorFrames = {}
 ---@type string
 local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\DarkIronDwarfBorder.png'
 local theBackground = 'Interface\\AddOns\\BetterBags-Themes\\textures\\MarbleBackground.png'
+local theCrest = 'Interface\\AddOns\\BetterBags-Themes\\textures\\DarkIronDwarfCrest.png'
 
 ---@type Theme
 local simpleDark = {
@@ -75,7 +76,17 @@ local simpleDark = {
       searchBox.frame:SetSize(150, 20)
       decoration.search = searchBox
 
-      themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
+      local bagButton = themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
+      bagButton:SetPoint("TOPLEFT", decoration, "TOPLEFT", -44, 36)
+      bagButton.portrait:SetSize(275, 350)
+      bagButton.portrait:SetTexCoord(0, 1, 0, 1)
+      bagButton.portrait:SetTexture(theCrest)
+      bagButton.portrait:SetScale(0.35)
+      bagButton.highlightTex:SetSize(275, 350)
+      bagButton.highlightTex:SetTexCoord(0, 1, 0, 1)
+      bagButton.highlightTex:SetTexture(theCrest)
+      bagButton.highlightTex:SetScale(0.35)
+
       -- Save the decoration frame for reuse.
       decoratorFrames[frame:GetName()] = decoration
     else
@@ -197,7 +208,7 @@ local simpleDark = {
     bagSlotWindow:SetPoint("BOTTOMLEFT", frame, "TOPLEFT", 0, 0)
   end,
   OffsetSidebar = function()
-    return -40
+    return -120
   end
 }
 

@@ -81,11 +81,11 @@ local simpleDark = {
       bagButton.portrait:SetSize(275, 350)
       bagButton.portrait:SetTexCoord(0, 1, 0, 1)
       bagButton.portrait:SetTexture(theCrest)
-      bagButton.portrait:SetScale(0.35)
+      bagButton.portrait:SetScale(0.25)
       bagButton.highlightTex:SetSize(275, 350)
       bagButton.highlightTex:SetTexCoord(0, 1, 0, 1)
       bagButton.highlightTex:SetTexture(theCrest)
-      bagButton.highlightTex:SetScale(0.35)
+      bagButton.highlightTex:SetScale(0.25)
 
       -- Save the decoration frame for reuse.
       decoratorFrames[frame:GetName()] = decoration

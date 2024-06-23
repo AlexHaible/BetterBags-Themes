@@ -55,7 +55,7 @@ local simpleDark = {
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
         bgFile = theBackground,
-        insets = {left = -0, right = -0, top = -0, bottom = -0},
+        insets = {left = -0, right = -0, top = 8, bottom = -0},
         tile = true,
         tileSize = 128
       })
@@ -63,13 +63,13 @@ local simpleDark = {
 
       decoration.BackdropOverlay = decoration:CreateTexture()
       decoration.BackdropOverlay:SetTexture(theTexture)
-      decoration.BackdropOverlay:SetPoint("TOP", frame, "TOP", -8, -8)
+      decoration.BackdropOverlay:SetPoint("TOP", frame, "TOP", 0, 0)
       decoration.BackdropOverlay:SetPoint("RIGHT", frame, "RIGHT", 8, -8)
       decoration.BackdropOverlay:SetPoint("BOTTOM", frame, "BOTTOM", 8, -8)
       decoration.BackdropOverlay:SetPoint("LEFT", frame, "LEFT", -8, 8)
       decoration.BackdropOverlay:SetVertexColor(1, 1, 1, 0.2)
 
-      decoration.Border = decoration:CreateTexture();
+      decoration.Border = decoration:CreateTexture()
       decoration.Border:SetTexture(theBorder)
       decoration.Border:SetTextureSliceMargins(8, 29, 8, 8)
       decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled)

@@ -101,7 +101,7 @@ local simpleDark = {
       end)
 
       local searchBox = search:CreateBox(frame.Owner.kind, decoration --[[@as Frame]])
-      searchBox.frame:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", -22, -2)
+      searchBox.frame:SetPoint("TOP", decoration, "TOP", 0, -15)
       searchBox.frame:SetSize(150, 20)
       decoration.search = searchBox
 
@@ -215,8 +215,7 @@ local simpleDark = {
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-      title:SetFont(theFont, 12, "")
-      title:SetTextColor(1, 1, 1)
+      title:SetFontObject(fonts.SegoeUI)
       title:SetPoint("TOPLEFT", decoration, "TOPLEFT", 4, 20)
       title:SetHeight(30)
       decoration.title = title

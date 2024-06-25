@@ -21,11 +21,20 @@ local fonts = BetterBags:GetModule('Fonts')
 ---@type table<string, SimpleDarkDecoration>
 local decoratorFrames = {}
 
+---@type string
+local theBorder = 'Interface\\AddOns\\BetterBags-Themes\\textures\\PandarenBorder.png'
+local theBackground = 'Interface\\ChatFrame\\ChatFrameBackground'
+local theCrest = 'Interface\\AddOns\\BetterBags-Themes\\textures\\PandarenCrest.png'
+
+fonts.UnitFrame12WhiteTitle = CreateFont('BetterBagsUnitFrame12WhiteTitle')
+fonts.UnitFrame12WhiteTitle:SetFont(UNIT_NAME_FONT, 12, "OUTLINE")
+fonts.UnitFrame12WhiteTitle:SetTextColor(1, 1, 1)
+
 ---@type Theme
 local simpleDark = {
   Name = 'Races - Pandaren',
   Description = 'A Pandaren inspired theme.',
-  Available = false,
+  Available = true,
   Portrait = function(frame)
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
@@ -34,18 +43,25 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = theBackground,
+        insets = {left = -20, right = -20, top = -20, bottom = -20},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.01, 0.2, 0.01, 0.7)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(theBorder)
+      decoration.Border:SetTextureSliceMargins(32, 32, 32, 32);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -32, 32)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 32, -32)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY")
-      title:SetFontObject(fonts.UnitFrame12White)
-      title:SetPoint("TOP", decoration, "TOP", 0, 0)
+      title:SetFontObject(fonts.UnitFrame12WhiteTitle)
+      title:SetPoint("TOP", decoration, "TOP", 0, 38)
       title:SetHeight(30)
       decoration.title = title
 
@@ -54,17 +70,27 @@ local simpleDark = {
       end
 
       local close = CreateFrame("Button", nil, decoration, "UIPanelCloseButtonNoScripts")
-      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 1, 0)
+      close:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", 32, 32)
       close:SetScript("OnClick", function()
         frame.Owner:Hide()
       end)
 
       local searchBox = search:CreateBox(frame.Owner.kind, decoration --[[@as Frame]])
-      searchBox.frame:SetPoint("TOPRIGHT", decoration, "TOPRIGHT", -22, -2)
+      searchBox.frame:SetPoint("TOP", decoration, "TOP", 0, 8)
       searchBox.frame:SetSize(150, 20)
       decoration.search = searchBox
 
-      themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
+      local bagButton = themes.SetupBagButton(frame.Owner, decoration --[[@as Frame]])
+      bagButton:SetPoint("TOPLEFT", decoration, "TOPLEFT", -32, 32)
+      bagButton.portrait:SetSize(275, 350)
+      bagButton.portrait:SetTexCoord(0, 1, 0, 1)
+      bagButton.portrait:SetTexture(theCrest)
+      bagButton.portrait:SetScale(0.25)
+      bagButton.highlightTex:SetSize(275, 350)
+      bagButton.highlightTex:SetTexCoord(0, 1, 0, 1)
+      bagButton.highlightTex:SetTexture(theCrest)
+      bagButton.highlightTex:SetScale(0.25)
+
       -- Save the decoration frame for reuse.
       decoratorFrames[frame:GetName()] = decoration
     else
@@ -79,17 +105,24 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = theBackground,
+        insets = {left = -20, right = -20, top = -20, bottom = -20},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.01, 0.2, 0.01, 0.7)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(theBorder)
+      decoration.Border:SetTextureSliceMargins(32, 32, 32, 32);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -32, 32)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 32, -32)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY")
-      title:SetFontObject(fonts.UnitFrame12White)
+      title:SetFontObject(fonts.UnitFrame12WhiteTitle)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
       title:SetHeight(30)
       decoration.title = title
@@ -117,17 +150,24 @@ local simpleDark = {
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
       decoration:SetBackdrop({
-        bgFile = 'Interface\\ChatFrame\\ChatFrameBackground',
-        edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
-        edgeSize = 16,
-        insets = {left = 4, right = 4, top = 4, bottom = 4}
+        bgFile = theBackground,
+        insets = {left = -20, right = -20, top = -20, bottom = -20},
+        tile = true,
+        tileSize = 128
       })
-      decoration:SetBackdropColor(0, 0, 0, 1)
-      decoration:SetBackdropBorderColor(0.5, 0.5, 0.5, 1)
+      decoration:SetBackdropColor(0.01, 0.2, 0.01, 0.7)
+
+      decoration.Border = decoration:CreateTexture();
+      decoration.Border:SetTexture(theBorder)
+      decoration.Border:SetTextureSliceMargins(32, 32, 32, 32);
+      decoration.Border:SetTextureSliceMode(Enum.UITextureSliceMode.Tiled);
+      decoration.Border:SetPoint("TOPLEFT", frame, "TOPLEFT", -32, 32)
+      decoration.Border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 32, -32)
+      decoration.Border:SetVertexColor(1, 1, 1);
 
       -- Title text
       local title = decoration:CreateFontString(nil, "OVERLAY")
-      title:SetFontObject(fonts.UnitFrame12White)
+      title:SetFontObject(fonts.UnitFrame12WhiteTitle)
       title:SetPoint("TOP", decoration, "TOP", 0, 0)
       title:SetHeight(30)
       decoration.title = title
@@ -172,7 +212,7 @@ local simpleDark = {
     bagSlotWindow:SetPoint("BOTTOMLEFT", frame, "TOPLEFT", 0, 0)
   end,
   OffsetSidebar = function()
-    return -40
+    return -60
   end
 }
 

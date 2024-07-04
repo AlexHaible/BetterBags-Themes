@@ -34,7 +34,7 @@ local simpleDark = {
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
       -- Backdrop
-      decoration = CreateFrame("Frame", frame:GetName().."ThemeSimpleDark", frame, "BackdropTemplate") --[[@as SimpleDarkDecoration]]
+      decoration = CreateFrame("Frame", frame:GetName().."ThemeOrc", frame, "BackdropTemplate") --[[@as SimpleDarkDecoration]]
       --decoration:SetAllPoints()
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
@@ -95,7 +95,7 @@ local simpleDark = {
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
       -- Backdrop
-      decoration = CreateFrame("Frame", frame:GetName().."ThemeSimpleDark", frame, "BackdropTemplate") --[[@as SimpleDarkDecoration]]
+      decoration = CreateFrame("Frame", frame:GetName().."ThemeOrc", frame, "BackdropTemplate") --[[@as SimpleDarkDecoration]]
       --decoration:SetAllPoints()
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)
@@ -139,7 +139,7 @@ local simpleDark = {
     local decoration = decoratorFrames[frame:GetName()]
     if not decoration then
       -- Backdrop
-      decoration = CreateFrame("Frame", frame:GetName().."ThemeSimpleDark", frame, "BackdropTemplate") --[[@as SimpleDarkDecoration]]
+      decoration = CreateFrame("Frame", frame:GetName().."ThemeOrc", frame, "BackdropTemplate") --[[@as SimpleDarkDecoration]]
       --decoration:SetAllPoints()
       decoration:SetAllPoints()
       decoration:SetFrameLevel(frame:GetFrameLevel() - 1)

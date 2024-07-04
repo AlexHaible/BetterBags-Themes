@@ -48,6 +48,8 @@ themes/Dracthyr.lua
 themes/Dynamic.lua
 themes/ArtDeco.lua
 themes/AeroGlass.lua
+themes/MacOSLight.lua
+themes/MacOSDark.lua
 
 #@debug@
 ## Version: DEV

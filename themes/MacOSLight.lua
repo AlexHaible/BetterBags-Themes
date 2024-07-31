@@ -5,8 +5,8 @@ assert(BetterBags, "BetterBags - Themes requires BetterBags")
 ---@class Themes: AceModule
 local themes = BetterBags:GetModule('Themes')
 
----@class Search: AceModule
-local search = BetterBags:GetModule('Search')
+---@class SearchBox: AceModule
+local search = BetterBags:GetModule('SearchBox')
 
 ---@class Fonts: AceModule
 local fonts = BetterBags:GetModule('Fonts')

@@ -1,7 +1,7 @@
-## Interface: 100207, 110000, 110002
+## Interface: 100207, 110000, 110002, 110005
 
 ## Title: BetterBags - Themes
-## Author: Sauravisus (Xerastrasza - Magtheridon EU, Horde)
+## Author: Sauravisus (Xirastrasza - Argent Dawn EU, Horde)
 ## Notes: Adds more themes to BetterBags!
 ## Version: @project-version@
 ## X-Date: @project-date-iso@

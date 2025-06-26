@@ -1,4 +1,4 @@
-## Interface: 110107, 110105, 110100
+## Interface: 110200, 110107
 
 ## Title: BetterBags - Themes
 ## Author: Sauravisus (Xirastrasza - Argent Dawn EU, Horde)

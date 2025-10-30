@@ -45,4 +45,4 @@ luac.out
 # PSD files
 *.psd
 textures/*.psd
-.vscode/settings.json
+.vscode

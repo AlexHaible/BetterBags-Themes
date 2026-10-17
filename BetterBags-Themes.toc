@@ -28,6 +28,8 @@
 ## OptionalDeps: BugSack, BugGrabber
 #@end-alpha@
 
+themes/Shared.lua
+
 ## Horde themes
 themes/BloodElf.lua
 themes/Nightborne.lua

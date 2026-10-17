@@ -7,7 +7,7 @@ sonata:RegisterTheme(ns.Framed({
   Name = "RacesPandaren",
   DisplayName = "Races - Pandaren",
   Description = "A Pandaren inspired theme.",
-  Background = "Interface\\ChatFrame\\ChatFrameBackground",
+  Background = ns.SOLID,
   BackgroundTileSize = 128,
   BackgroundInset = 20,
   Color = { 0.01, 0.2, 0.01, 0.7 },
@@ -21,4 +21,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOP", 0, 8),
   Menu = { X = -32, Y = 32 },
   Crest = ns.TEXTURES .. "PandarenCrest.png",
+  -- Tabs: bamboo, its gold bands.
+  TabEdge = { 0.22, 0.24, 0.18, 1 },
+  TabAccent = { 0.8, 0.65, 0.3, 1 },
 }))

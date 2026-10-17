@@ -46,6 +46,71 @@ end
 -- The Show Bags and bank tab panels sit on top of their bag.
 local ABOVE_THE_BAG = { Points = { { Point = "BOTTOMLEFT", RelativePoint = "TOPLEFT" } } }
 
+-- A plain white fill BetterBags tints, as the race themes' solid fills are.
+ns.SOLID = "Interface\\ChatFrame\\ChatFrameBackground"
+
+---@param font table
+---@param color number[]
+---@return table
+local function withColor(font, color)
+  local copy = {}
+  for k, v in pairs(font) do
+    copy[k] = v
+  end
+  copy.Color = color
+  return copy
+end
+
+---@class TabOptions
+---@field Fill table The tab's fill: a texture spec.
+---@field Edge number[] The edge's color.
+---@field Accent number[] The edge's color while the tab is selected.
+---@field EdgeSize? number The edge's width (2 when unset).
+---@field Font table The tab text's font.
+---@field TextColor? number[] The text's color (light gray when unset).
+---@field BrightTextColor? number[] The text's color while hovered or selected (white when unset).
+---@field Hover? number[] The overlay while hovered.
+---@field SelectedFill? number[] The overlay while selected.
+
+-- Tab builds a flat tab: a fill with an edge around it, the edge in an accent color and the fill
+-- lighter while selected. Its art starts 2 into the tab: the tab bar hangs 2 under the art above
+-- it (Layout.Tabs).
+---@param o TabOptions
+---@return table
+function ns.Tab(o)
+  local inset = { Left = 0, Right = 0, Top = 2, Bottom = 0 }
+  local fill = {}
+  for k, v in pairs(o.Fill) do
+    fill[k] = v
+  end
+  fill.Inset = inset
+  local bright = withColor(o.Font, o.BrightTextColor or { 1, 1, 1, 1 })
+  return {
+    Art = "Flat",
+    Height = 26,
+    Background = fill,
+    Border = { Color = o.Edge, EdgeSize = o.EdgeSize or 2, Inset = inset },
+    Hover = { Color = o.Hover or { 1, 1, 1, 0.08 }, Inset = inset },
+    Selected = {
+      Background = { Color = o.SelectedFill or { 1, 1, 1, 0.12 }, Inset = inset },
+      Border = { Color = o.Accent },
+    },
+    Font = withColor(o.Font, o.TextColor or { 0.8, 0.8, 0.8, 1 }),
+    HighlightFont = bright,
+    SelectedFont = bright,
+    TextOffset = { X = 0, Y = -1 },
+    SelectedTextOffset = { X = 0, Y = -1 },
+  }
+end
+
+-- TabsBelow hangs the tab bar so its tabs start just under art reaching `below` under the window.
+---@param below number
+---@param x? number
+---@return table
+function ns.TabsBelow(below, x)
+  return { Offset = { X = x or 0, Y = 2 - below } }
+end
+
 ---@class FramedThemeOptions
 ---@field Name string The key the theme is saved under.
 ---@field DisplayName string
@@ -70,6 +135,12 @@ local ABOVE_THE_BAG = { Points = { { Point = "BOTTOMLEFT", RelativePoint = "TOPL
 ---@field Crest? string The menu button's art, drawn 275 by 350 at CrestScale (Blizzard's when unset).
 ---@field CrestScale? number
 ---@field BagTextures? table[] More art for the bag, drawn after the border.
+---@field TabEdge number[] The tabs' edge: the border art's main color.
+---@field TabAccent number[] The selected tab's edge: the border art's accent.
+---@field TabEdgeSize? number
+---@field TabFont? table The tab text's font (white outlined UnitFrame12White when unset).
+---@field ArtBelow? number How far the border's art reaches under the window (Outset when unset).
+---@field TabsX? number Moves the tabs right, past art at the window's bottom left corner.
 
 -- Framed builds the theme every race theme and Art Deco share: a fill reaching outside the
 -- window, a nine-sliced border around it, a title above it, Blizzard's close button, and the
@@ -118,7 +189,25 @@ function ns.Framed(o)
   end
   slots.Layout = ABOVE_THE_BAG
 
-  local elements = { SectionHeader = { Font = ns.WHITE } }
+  -- The tabs are filled like the window and edged in the border's colors.
+  local tabFill
+  if o.Background == ns.SOLID then
+    tabFill = { Color = o.Color }
+  elseif o.BackgroundTileSize ~= nil then
+    tabFill = { Texture = o.Background, HorizTile = true, VertTile = true, VertexColor = o.Color }
+  else
+    tabFill = { Texture = o.Background, VertexColor = o.Color }
+  end
+  local elements = {
+    SectionHeader = { Font = ns.WHITE },
+    Tab = ns.Tab({
+      Fill = tabFill,
+      Edge = o.TabEdge,
+      Accent = o.TabAccent,
+      EdgeSize = o.TabEdgeSize,
+      Font = o.TabFont or ns.WHITE_OUTLINE,
+    }),
+  }
   if o.Crest ~= nil then
     local scale = o.CrestScale or 0.25
     local art = { Texture = o.Crest, TexCoords = { 0, 1, 0, 1 }, Width = 275 * scale, Height = 350 * scale }
@@ -148,6 +237,8 @@ function ns.Framed(o)
           -- In the band above the content, which it never pushes down.
           Search = { Points = o.Search, Reserve = 0 },
           MenuButton = { Points = { { Point = "TOPLEFT", X = o.Menu.X, Y = o.Menu.Y } } },
+          -- Below the border (or the fill, where it reaches further).
+          Tabs = ns.TabsBelow(math.max(o.ArtBelow or o.Outset, o.BackgroundInset), o.TabsX),
         },
       },
       Panel = {
@@ -191,6 +282,7 @@ end
 ---@field Color number[] The window's fill.
 ---@field Bottom number The bottom edge's height and slice margin.
 ---@field Sides boolean Draws the 2 pixel left and right edges.
+---@field Tab table The tab's colors: ns.Tab options other than Font (Helvetica Neue).
 
 -- MacOS builds a macOS window: a title bar above the window with the close and menu buttons
 -- and the search box, an edge below it, and Helvetica Neue titles.
@@ -262,6 +354,10 @@ function ns.MacOS(o)
   end
   slots.Layout = ABOVE_THE_BAG
   local menu = art .. "MenuButton.png"
+  local tab = { Font = font }
+  for k, v in pairs(o.Tab) do
+    tab[k] = v
+  end
   return {
     Name = o.Name,
     DisplayName = o.DisplayName,
@@ -277,6 +373,8 @@ function ns.MacOS(o)
         Layout = {
           Search = { Points = ns.SearchPoints("TOP", 0, 26), Reserve = 0 },
           MenuButton = { Points = { { Point = "TOPLEFT", X = 24, Y = 22 } } },
+          -- Below the bottom edge.
+          Tabs = ns.TabsBelow(o.Bottom),
         },
       },
       Panel = {
@@ -291,6 +389,7 @@ function ns.MacOS(o)
     },
     Elements = {
       SectionHeader = { Font = font },
+      Tab = ns.Tab(tab),
       BagButton = {
         Size = 12,
         Portrait = false,

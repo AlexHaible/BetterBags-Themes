@@ -22,4 +22,9 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOPRIGHT", -22, -2),
   -- Blizzard's bag portrait, where BetterBags puts it.
   Menu = { X = -10, Y = 7 },
+  -- Tabs: a thin line of the border's pale gold, brighter while selected, in Poiret One.
+  TabEdge = { 0.82, 0.74, 0.6, 1 },
+  TabAccent = { 0.95, 0.85, 0.6, 1 },
+  TabEdgeSize = 1,
+  TabFont = ns.Font("PoiretOne-Regular.ttf", 14),
 }))

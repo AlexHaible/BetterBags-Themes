@@ -20,4 +20,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOP", 0, 0),
   Menu = { X = -32, Y = 32 },
   Crest = ns.TEXTURES .. "MagharOrcCrest.png",
+  -- Tabs: fur, its pale tips.
+  TabEdge = { 0.4, 0.33, 0.27, 1 },
+  TabAccent = { 0.82, 0.78, 0.65, 1 },
 }))

@@ -7,7 +7,7 @@ sonata:RegisterTheme(ns.Framed({
   Name = "RacesHuman",
   DisplayName = "Races - Human",
   Description = "A Human inspired theme.",
-  Background = "Interface\\ChatFrame\\ChatFrameBackground",
+  Background = ns.SOLID,
   BackgroundInset = 8,
   Color = { 0.01, 0.01, 0.2, 0.7 },
   Border = ns.TEXTURES .. "HumanBorder.png",
@@ -18,4 +18,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOPRIGHT", -22, -2),
   Menu = { X = -24, Y = 24 },
   Crest = ns.TEXTURES .. "HumanCrest.png",
+  -- Tabs: stone, the gold trim.
+  TabEdge = { 0.26, 0.25, 0.22, 1 },
+  TabAccent = { 0.85, 0.7, 0.25, 1 },
 }))

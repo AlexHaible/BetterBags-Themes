@@ -19,4 +19,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOPRIGHT", -22, -2),
   Menu = { X = -28, Y = 28 },
   Crest = ns.TEXTURES .. "VoidElfCrest.png",
+  -- Tabs: void black, its purple sparks.
+  TabEdge = { 0.09, 0.05, 0.09, 1 },
+  TabAccent = { 0.6, 0.35, 0.9, 1 },
 }))

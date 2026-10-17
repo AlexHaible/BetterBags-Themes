@@ -20,4 +20,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOP", 0, 0),
   Menu = { X = -32, Y = 32 },
   Crest = ns.TEXTURES .. "VulperaCrest.png",
+  -- Tabs: red-brown braids, the wicker.
+  TabEdge = { 0.32, 0.18, 0.11, 1 },
+  TabAccent = { 0.8, 0.64, 0.4, 1 },
 }))

@@ -20,4 +20,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOP", 0, 0),
   Menu = { X = -32, Y = 32 },
   Crest = ns.TEXTURES .. "HighmountainTaurenCrest.png",
+  -- Tabs: red-brown braids, the tan corner blocks.
+  TabEdge = { 0.38, 0.23, 0.2, 1 },
+  TabAccent = { 0.86, 0.76, 0.55, 1 },
 }))

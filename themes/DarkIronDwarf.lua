@@ -20,4 +20,7 @@ sonata:RegisterTheme(ns.Framed({
   Menu = { X = -44, Y = 36 },
   Crest = ns.TEXTURES .. "DarkIronDwarfCrest.png",
   CrestScale = 0.35,
+  -- Tabs: dark iron, the runes' glow.
+  TabEdge = { 0.15, 0.1, 0.07, 1 },
+  TabAccent = { 1, 0.48, 0.12, 1 },
 }))

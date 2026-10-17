@@ -21,4 +21,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOPRIGHT", -22, -2),
   Menu = { X = -32, Y = 32 },
   Crest = ns.TEXTURES .. "BloodElfCrest.png",
+  -- Tabs: gold trim, the corner gems' green.
+  TabEdge = { 0.68, 0.56, 0.3, 1 },
+  TabAccent = { 0.35, 0.8, 0.25, 1 },
 }))

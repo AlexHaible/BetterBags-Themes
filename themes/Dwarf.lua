@@ -19,4 +19,7 @@ sonata:RegisterTheme(ns.Framed({
   Search = ns.SearchPoints("TOPRIGHT", -22, -2),
   Menu = { X = -42, Y = 42 },
   Crest = ns.TEXTURES .. "DwarfCrest.png",
+  -- Tabs: stone, the bronze braids.
+  TabEdge = { 0.38, 0.36, 0.36, 1 },
+  TabAccent = { 0.72, 0.45, 0.2, 1 },
 }))

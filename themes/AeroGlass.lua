@@ -96,6 +96,8 @@ sonata:RegisterTheme({
         Search = { Points = ns.SearchPoints("TOP", 0, -15), Reserve = 0 },
         -- Left of the close button.
         MenuButton = { Points = { { Point = "TOPRIGHT", X = -49, Y = 20 } } },
+        -- Below the border, which reaches 8 under the window.
+        Tabs = ns.TabsBelow(8),
       },
     },
     Panel = {
@@ -110,6 +112,15 @@ sonata:RegisterTheme({
   },
   Elements = {
     SectionHeader = { Font = FONT },
+    -- The border's glass blue, edged in its darker blue, its pale highlight while selected.
+    Tab = ns.Tab({
+      Fill = { Color = { 0.45, 0.58, 0.73, 0.85 } },
+      Edge = { 0.3, 0.43, 0.58, 1 },
+      Accent = { 0.72, 0.8, 0.89, 1 },
+      EdgeSize = 1,
+      Font = ns.Font("SegoeUI.ttf", 12, "OUTLINE"),
+      SelectedFill = { 1, 1, 1, 0.2 },
+    }),
     BagButton = {
       Width = 30,
       Height = 21,

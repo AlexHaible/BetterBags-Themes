@@ -54,4 +54,9 @@ sonata:RegisterTheme(ns.Framed({
     corner("RuneCircle3", "NightborneRuneCircle.png", "BOTTOMLEFT", -48, -48, "ARTWORK", 1),
     corner("RuneCircle4", "NightborneRuneCircle.png", "BOTTOMRIGHT", 48, -48, "ARTWORK", 1),
   },
+  -- Tabs: silver filigree, the teal gems.
+  TabEdge = { 0.57, 0.51, 0.46, 1 },
+  TabAccent = { 0.3, 0.8, 0.8, 1 },
+  -- Past the corner flower, which reaches 42 under the window.
+  TabsX = 14,
 }))

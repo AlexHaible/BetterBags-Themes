@@ -7,7 +7,7 @@ sonata:RegisterTheme(ns.Framed({
   Name = "RacesUndead",
   DisplayName = "Races - Undead",
   Description = "A Undead inspired theme.",
-  Background = "Interface\\ChatFrame\\ChatFrameBackground",
+  Background = ns.SOLID,
   BackgroundTileSize = 128,
   BackgroundInset = 8,
   Color = { 0, 0, 0, 1 },
@@ -20,4 +20,7 @@ sonata:RegisterTheme(ns.Framed({
   Menu = { X = -24, Y = 24 },
   Crest = ns.TEXTURES .. "UndeadCrest.png",
   CrestScale = 0.35,
+  -- Tabs: black smoke, the gold trim.
+  TabEdge = { 0.14, 0.13, 0.1, 1 },
+  TabAccent = { 0.73, 0.56, 0.06, 1 },
 }))

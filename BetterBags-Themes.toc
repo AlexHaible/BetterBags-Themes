@@ -67,6 +67,10 @@ themes/AeroGlass.lua
 themes/MacOSLight.lua
 themes/MacOSDark.lua
 
+## BetterBags Next themes
+themes/next/Shared.lua
+themes/next/NightElf.lua
+
 #@debug@
 ## Version: DEV
 #@end-debug@

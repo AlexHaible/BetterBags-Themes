@@ -42,6 +42,7 @@ themes/HighmountainTauren.lua
 themes/MagharOrc.lua
 themes/ZandalariTroll.lua
 themes/Vulpera.lua
+themes/WindshaperSkyborne.lua
 
 ## Alliance themes
 themes/VoidElf.lua
@@ -55,6 +56,7 @@ themes/KulTiran.lua
 themes/LightforgedDraenei.lua
 themes/Mechagnome.lua
 themes/DarkIronDwarf.lua
+themes/HighOrderSkyborne.lua
 
 ## Both factions themes
 themes/Pandaren.lua

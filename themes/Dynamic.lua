@@ -14,6 +14,11 @@ local THEMES = {
   -- Haranir's own name is "Haranir" (matched by default); earlier builds spelled it so.
   Harronir = "RacesHaranir",
 }
+-- Races told apart only by their ID (UnitRace's third value): Forever's Skyborne are both "Skyborne".
+local BY_ID = {
+  [95] = "RacesHighOrderSkyborne",
+  [96] = "RacesWindshaperSkyborne",
+}
 -- A race with no theme of its own takes its faction's.
 local BY_FACTION = {
   Alliance = "RacesHuman",
@@ -31,7 +36,10 @@ end
 
 ---@return string
 local function parent()
-  local _, race = UnitRace("player")
+  local _, race, id = UnitRace("player")
+  if id ~= nil and BY_ID[id] ~= nil and usable(BY_ID[id]) then
+    return BY_ID[id]
+  end
   if race ~= nil then
     local name = THEMES[race] or ("Races" .. race)
     if usable(name) then

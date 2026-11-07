@@ -1,5 +1,5 @@
 package-as: BetterBags-Themes
-enable-toc-creation: yes
+enable-toc-creation: no
 enable-nolib-creation: no
 
 license-output: LICENSE.txt

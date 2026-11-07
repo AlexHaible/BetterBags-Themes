@@ -1,0 +1,76 @@
+## Interface: 16001
+
+## Title: BetterBags - Themes
+## Author: Sauravisus (John Thorium - PvE - Alliance)
+## Notes: Adds more themes to BetterBags!
+## Version: @project-version@
+## X-Date: @project-date-iso@
+## X-Category: Bags & Inventory
+## X-Curse-Project-ID: 1037168
+## Dependencies: BetterBags
+## IconTexture: Interface\Icons\inv_misc_bag_24_netherweave_imbued
+
+## Category-enUS: Inventory
+## Category-deDE: Inventar
+## Category-esES: Inventario
+## Category-esMX: Inventario
+## Category-frFR: Inventaire
+## Category-itIT: Inventario
+## Category-koKR: 소지품
+## Category-ptBR: Inventário
+## Category-ruRU: Предметы
+## Category-zhCN: 物品栏
+## Category-zhTW: 物品欄
+
+## Group: BetterBags
+
+#@alpha@
+## OptionalDeps: BugSack, BugGrabber
+#@end-alpha@
+
+themes/Shared.lua
+
+## Horde themes
+themes/BloodElf.lua
+themes/Nightborne.lua
+themes/Orc.lua
+themes/Undead.lua
+themes/Tauren.lua
+themes/Troll.lua
+themes/Goblin.lua
+themes/HighmountainTauren.lua
+themes/MagharOrc.lua
+themes/ZandalariTroll.lua
+themes/Vulpera.lua
+
+## Alliance themes
+themes/VoidElf.lua
+themes/NightElf.lua
+themes/Draenei.lua
+themes/Dwarf.lua
+themes/Gnome.lua
+themes/Human.lua
+themes/Worgen.lua
+themes/KulTiran.lua
+themes/LightforgedDraenei.lua
+themes/Mechagnome.lua
+themes/DarkIronDwarf.lua
+
+## Both factions themes
+themes/Pandaren.lua
+themes/Dracthyr.lua
+
+## Misc themes
+themes/Dynamic.lua
+themes/ArtDeco.lua
+themes/AeroGlass.lua
+themes/MacOSLight.lua
+themes/MacOSDark.lua
+
+## BetterBags Next themes
+themes/next/Shared.lua
+themes/next/NightElf.lua
+
+#@debug@
+## Version: DEV
+#@end-debug@

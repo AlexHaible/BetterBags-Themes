@@ -59,6 +59,8 @@ themes/DarkIronDwarf.lua
 ## Both factions themes
 themes/Pandaren.lua
 themes/Dracthyr.lua
+themes/Earthen.lua
+themes/Haranir.lua
 
 ## Misc themes
 themes/Dynamic.lua
